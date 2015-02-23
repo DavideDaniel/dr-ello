@@ -1,0 +1,58 @@
+<div class="row">
+<form action="/provider/create" method="POST"  class="col s6">
+    <fieldset>
+    <legend>Sign up</legend></fieldset>
+
+    <div class="control-group">
+    <label for="signupName" class="controls">
+        User Name
+    </label>
+
+    </div>
+    <div class="controls">
+    <input class = "validate" type="text" name="signupName" />
+    </div>
+
+    <div class="control-group">
+    <label for="fullName" class="controls">
+        Full Name
+    </label>
+
+    </div>
+    <div class="controls">
+    <input class = "validate" type="text" name="fullName"  />
+    </div>
+
+    <div class="control-group">
+    <label for="email" class="controls">
+        Email
+    </label>
+
+    </div>
+    <div class="controls">
+    <input class = "validate" type="text" name="email"  />
+    </div>
+
+    <div class="control-group">
+<label for="password" class="controls">
+        Password
+</label>
+</div>
+<div class="controls">
+<input class = "validate" type="password" name="signupPassword" />
+</div>
+
+    <div class="control-group">
+<label for="confirm_password" class="controls">
+        Confirm Password
+</label>
+</div>
+<div class="controls">
+<input class = "validate" type="password" name="signupConfirmPassword"  />
+</div>
+
+<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+<br>
+<button type="submit" name="signupButton" class= "btn btn-default btn-sm">Sign Up</button>
+</form>
+</div>

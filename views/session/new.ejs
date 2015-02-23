@@ -1,0 +1,26 @@
+<div class="col s12">
+    <form action="/user/create" method="POST"  class=" col s12">
+        <fieldset>
+            <legend>Log in</legend></fieldset>
+            <div class="input-field col s5">
+                <i class="mdi-image-tag-faces prefix"></i>
+                <input type="text" class="validate" id="icon_sn" />
+                <label for="icon_sn" class="controls">
+                    User Name
+                </label>
+            </div>
+
+            <div class="input-field col s4">
+                <i class="mdi-action-lock prefix"></i>
+                <input type="password" class="validate" id="icon_loginpw" />
+                <label for="icon_loginpw" class="controls">
+                    Password
+                </label>
+            </div>
+            <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+            <br>
+            <div class="center-align">
+            <a type="submit" name="signupButton" class= "center-align waves-effect waves-light btn-large blue"><i class="mdi-content-send left"></i>Sign Up</a>
+            </div>
+        </form>
+    </div>

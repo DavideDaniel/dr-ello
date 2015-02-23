@@ -1,0 +1,138 @@
+<ul id="slide-out" class="side-nav full">
+  <li><a href="#!">First Sidebar Link</a></li>
+  <li><a href="#!">Second Sidebar Link</a></li>
+</ul>
+
+<a href="#" data-activates="slide-out" class="button-collapse">
+  <i class="large mdi-navigation-menu"></i>
+</a>
+
+<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+<li class="navmenu-brand" href="#">Caseload</li>
+    <ul class="nav navmenu-nav">
+        <li class="patient active"><a href="#">Patient Name</a></li>
+<% patients.forEach( function ( patient ) { %>
+<% console.log(patient) %>
+<li class="patient" >
+	<a href="/patient/show/<%= patient.id %>"><%= patient.fullName  %></a>
+<% } ) %>
+</ul>
+</nav>
+<body class = "canvas">
+<div class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid col-md-16">
+        <div class="navbar-header">
+          
+          <a class="navbar-brand" href="#">dr <i class="fa fa-plus"></i> ello</a>
+        </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><%- link_to('Home', '/') %></li>
+              <li><a href="http://github.com/davidedaniel">About</a></li>
+            </ul>
+          </div>
+
+  <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  </div>
+</div>
+	
+          
+
+    
+
+<div class="wrapper container-fluid row col-md-12">
+	<div class="leftSide col-md-4">
+    	<button type="button btn-primary" class="navbar-toggle" data-toggle="nav in offcanvas" data-target=".navmenu" data-canvas="body">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </button>
+    	<div class="img"></div>
+    	<h3>David Daniel</h3>
+		<dl class="info">DOB: 10/20/1981</dl>
+		<ul class="info">Current issues</ul>
+	</div>
+	<div class="rightSide js-packery row col-md-8" data-packery-options='{ "itemSelector": ".list", "gutter": 2, 	"columnWidth": 80,
+  "rowHeight": 80 }'>
+<div class="cards">
+<% cards.forEach( function ( card ) { %>
+
+<div style="height: 30px">
+	<p class = "text-center"><%= card.name %></p>
+</div>
+	<li class = "text-center"><a href="<%= card.url %>"><%= card.name  %></a></li>
+	<p class = "text-center"><%= card.language  %></li>
+
+
+<% } ) %>
+</div>
+			
+<div class="cards" >
+			
+		</div>
+		
+
+		
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+	console.log('inside script');
+
+
+	var $list = $('.list');
+// init
+	var $rightSide = $('.rightSide');
+
+	$rightSide.packery({
+		itemSelector: '.list',
+		gutter: 2,
+		columnWidth: 80,
+
+	});
+	$list.packery({
+  itemSelector: '.cards',
+  gutter: 10
+});
+
+// $rightSide.find($list).each(function(i, div){
+
+// 	var dragger = new Draggabilly (div);
+// 	$rightSide.packery('bindDraggabillyEvents', dragger);
+// });
+
+$rightSide.on( 'click', '.list', function( event ) {
+  var $target = $( event.target )
+  var bigger = $target.hasClass('bigList');
+  $target.toggleClass('bigList');
+
+  if ( bigger ) {
+    // if shrinking, just layout
+    $rightSide.packery({
+		itemSelector: '.list',
+		gutter: 2,
+		columnWidth: 80,
+
+	});
+  } else {
+    $rightSide.packery( 'fit', event.target );
+  }
+});
+
+
+$('.list').find('.cards').each( function( i, itemElem ) {
+  // make element draggable with Draggabilly
+  var draggie = new Draggabilly( itemElem );
+  // bind Draggabilly events to Packery
+  $list.packery( 'bindDraggabillyEvents', draggie );
+});
+
+})
+
+
+
+</script>

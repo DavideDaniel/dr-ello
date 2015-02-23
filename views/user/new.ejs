@@ -1,0 +1,53 @@
+<div class="col s12">
+    <form action="/user/create" method="POST"  class=" col s12">
+        <fieldset>
+        <legend>Sign up as a new patient</legend></fieldset>
+    
+        
+        
+    
+        
+        <div class="input-field col s5">
+        <i class="mdi-image-tag-faces prefix"></i>
+        <input type="text" class="validate" id="icon_sn" />
+        <label for="icon_sn" class="controls">
+            User Name
+        </label>
+        </div>
+    
+        <div class="input-field col s5">
+        <i class="mdi-action-account-circle prefix"></i>
+        <input id="icon_prefix" type="text" class="validate">
+        <label for="icon_prefix">Full Name</label>
+        </div>
+    
+        <div class="input-field col s5">
+        <i class="mdi-communication-email prefix"></i>
+        <input type="text" class="validate" id="icon_email"  />
+        <label for="icon_email" class="controls">
+            Email
+        </label>
+        </div>
+    
+    <div class="input-field col s4">
+    <i class="mdi-action-lock prefix"></i>
+    <input type="password" class="validate" id="icon_pw" />
+    <label for="icon_pw" class="controls">
+            Password
+    </label>
+    </div>
+
+    <div class="input-field col s4">
+    <i class="mdi-action-lock-outline prefix"></i>
+    <input type="password" class="validate" id="icon_confirm"  />
+    <label for="icon_confirm" class="controls">
+            Confirm Password
+    </label>
+    </div>
+    
+    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+    <br>
+    <div class="center-align">
+    <a type="submit" name="signupButton" class= "center-align waves-effect waves-light btn-large blue"><i class="mdi-content-send left"></i>Sign Up</a></div>
+    </form>
+</div>

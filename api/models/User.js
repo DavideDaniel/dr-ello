@@ -4,13 +4,14 @@ module.exports = {
 
   attributes: {
   	
-  	name: {
+  	fullName: {
   		type: 'string',
   		required: true
   	},
 
-  	title: {
-  		type: 'string'
+  	username: {
+  		type: 'string',
+      required: true
   	},
 
   	email: {

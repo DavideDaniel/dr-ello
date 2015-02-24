@@ -7,13 +7,14 @@ module.exports = {
   },
 
   create: function(req, res, next) {
+    console.log(req.params.all);
 
     var userObj = {
-      fullName: req.param('fullName'),
-      username: req.param('username'),
-      email: req.param('email'),
-      password: req.param('password'),
-      confirmPassword: req.param('confirmation')
+      fullName: req.param('icon_prefix'),
+      username: req.param('icon_sn'),
+      email: req.param('icon_email'),
+      password: req.param('icon_pw'),
+      confirmPassword: req.param('icon_confirm')
     }
 
     // Create a User with the params sent from 

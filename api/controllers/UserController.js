@@ -100,15 +100,15 @@ module.exports = {
 
     if (req.session.User.admin) {
       var userObj = {
-        name: req.param('name'),
-        title: req.param('title'),
+        fullName: req.param('fullName'),
+        username: req.param('username'),
         email: req.param('email'),
         admin: req.param('admin')
       }
     } else {
       var userObj = {
-        name: req.param('name'),
-        title: req.param('title'),
+        fullName: req.param('name'),
+        username: req.param('username'),
         email: req.param('email')
       }
     }
@@ -134,7 +134,7 @@ module.exports = {
 
         // Inform other sockets (e.g. connected sockets that are subscribed) that this user is now logged in
         User.publishUpdate(user.id, {
-          name: user.name,
+          fullName: user.fullName,
           action: ' has been destroyed.'
         });
 
